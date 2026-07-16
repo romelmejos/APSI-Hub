@@ -590,9 +590,8 @@ export default function LearningPage({
                   <div className="flex justify-between items-center">
                     {activeLesson.description}
                    </div>
-              </div>
-
              
+
 
                 {/* Saved list */}
                 <div className="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-700">

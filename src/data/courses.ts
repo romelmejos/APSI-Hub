@@ -61,10 +61,12 @@ export const COURSES: Course[] = [
           {
             id: "cs-l2",
             title: "1.2 How React Works Under the Hood & React Compiler",
-            duration: "18:45",
+            duration: "8:21",
             durationSeconds: 1125,
             videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-            description: "Deconstruct the Virtual DOM reconciliation, fiber nodes, and the brand-new React compiler. See how React optimizes renders automatically."
+            embedHtml: `<iframe width="862" height="485" src="https://www.youtube.com/embed/-xwXPYEc8nc?list=PLIAAss__korQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+            description: "Deconstruct the Virtual DOM reconciliation, fiber nodes, and the brand-new React compiler. See how React optimizes renders automatically.",
+            lessonMD: lesson1MD
           },
           {
             id: "cs-l3",

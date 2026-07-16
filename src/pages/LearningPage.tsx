@@ -2,8 +2,6 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
 
 import React, { useState, useEffect, useRef } from "react";
 import { Play, Pause, RotateCcw, Volume2, VolumeX, Maximize2, CheckSquare, Square, ChevronRight, FileText, Download, MessageSquare, ThumbsUp, Send, Bookmark, Trash2, ArrowLeft, AlertCircle } from "lucide-react";
@@ -399,7 +397,7 @@ export default function LearningPage({
                       : "text-slate-400 hover:text-white"
                   }`}
                 >
-                   Lecture 
+                  Live Lecture Embed
                 </button>
                 <button
                   onClick={() => setUseEmbed(false)}
@@ -561,7 +559,7 @@ export default function LearningPage({
                     : "border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 }`}
               >
-                Lecture Notes
+                My Lecture Notes
               </button>
               <button
                 onClick={() => setActiveTab("discussion")}
@@ -588,15 +586,37 @@ export default function LearningPage({
             {/* TAB WINDOW 1: MY LECTURE NOTES */}
             {activeTab === "notes" && (
               <div className="p-6 space-y-6" id="tab-window-notes">
-               
-                  
-                    <div className="w-full">
-                      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                        {activeLesson.lessonMD}
-                      </ReactMarkdown>
-                    </div>
-             
+                <form onSubmit={handleSaveNote} className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Type Custom Note</label>
+                    <button
+                      type="button"
+                      onClick={handleCaptureTimestamp}
+                      className="inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-maroon dark:text-brand-gold hover:underline"
+                    >
+                      <Bookmark className="w-3.5 h-3.5" />
+                      <span>Tag current play time ({formatTime(currentTime)})</span>
+                    </button>
+                  </div>
 
+                  <textarea
+                    rows={3}
+                    placeholder="Wrote down main equations, reference codes, or theoretical questions here..."
+                    value={noteText}
+                    onChange={(e) => setNoteText(e.target.value)}
+                    className="w-full text-xs sm:text-sm p-4 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-maroon"
+                  />
+
+                  <div className="flex justify-end">
+                    <button
+                      type="submit"
+                      disabled={!noteText.trim()}
+                      className="px-5 h-9 bg-brand-maroon text-white rounded-lg text-xs font-bold hover:bg-brand-maroon-light disabled:opacity-40 disabled:hover:bg-brand-maroon shadow-md transition-colors border border-brand-gold/15"
+                    >
+                      Save Note Pin
+                    </button>
+                  </div>
+                </form>
 
                 {/* Saved list */}
                 <div className="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-700">
@@ -645,20 +665,36 @@ export default function LearningPage({
             {activeTab === "discussion" && (
               <div className="p-6 space-y-8" id="tab-window-discussion">
                 {/* Ask a new question form */}
-                <h4 className="text-xs font-bold text-brand-maroon dark:text-brand-gold uppercase tracking-widest">SANDBOX</h4>
-                   <iframe 
-                    src="https://codesandbox.io/embed/react-new?fontsize=14&hidenavigation=1&theme=dark"
-                    style={{ 
-                      width: "100%", 
-                      height: "500px", 
-                      border: 0, 
-                      borderRadius: "4px", 
-                      overflow: "hidden" 
-                    }}
-                    title="React Live Simulator"
-                    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-                    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-                  ></iframe>
+                <form onSubmit={handleCreatePost} className="space-y-3.5 p-4 rounded-xl border border-brand-maroon/20 dark:border-brand-gold/20 bg-brand-maroon/5 dark:bg-brand-maroon/10">
+                  <h4 className="text-xs font-bold text-brand-maroon dark:text-brand-gold uppercase tracking-widest">Ask the Classroom</h4>
+                  
+                  <div className="space-y-2">
+                    <input
+                      type="text"
+                      placeholder="Title: e.g. Understanding matrix sizes in backpropagation"
+                      value={newPostTitle}
+                      onChange={(e) => setNewPostTitle(e.target.value)}
+                      className="w-full text-xs p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-brand-maroon"
+                    />
+                    <textarea
+                      rows={2}
+                      placeholder="Provide full description of your query..."
+                      value={newPostContent}
+                      onChange={(e) => setNewPostContent(e.target.value)}
+                      className="w-full text-xs p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-brand-maroon"
+                    />
+                  </div>
+
+                  <div className="flex justify-end">
+                    <button
+                      type="submit"
+                      disabled={!newPostTitle.trim() || !newPostContent.trim()}
+                      className="px-5 h-9 bg-brand-maroon text-white rounded-lg text-xs font-bold hover:bg-brand-maroon-light disabled:opacity-40 disabled:hover:bg-brand-maroon shadow transition-colors border border-brand-gold/15"
+                    >
+                      Post Question
+                    </button>
+                  </div>
+                </form>
 
                 {/* Posts listing */}
                 <div className="space-y-6 pt-4 border-t border-slate-100 dark:border-slate-700">

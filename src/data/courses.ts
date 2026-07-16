@@ -4,7 +4,6 @@
  */
 
 import { Course } from "../types";
-import lesson1MD from './module1.md?raw';
 
 export const COURSES: Course[] = [
   {
@@ -54,19 +53,16 @@ export const COURSES: Course[] = [
             duration: "14:20",
             durationSeconds: 860,
             videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-            embedHtml: `<div style="position:relative;height:0;padding-bottom:56.25%"><iframe width="640" height="360" src="https://www.linkedin.com/learning/embed/react-essential-training/what-is-react?autoplay=false&claim=AQEKmOSTbrlADQAAAZ9rFgnUeuidsx8hmGwayJiAOhaByT43XZKSO40cy8qiiRIOAeP-ExUvP12HJ9Q9aUIQfDCQEkZkXfBOOdTkkoBzlFNe-21FQc8HTM3HVQnUQ-8QzqUxrha6bG3TovXFLQ1Pcpb_qnxVL27Huzlsd7WpifZE3hJ_IJzX2VZNNONIJmxnI5PCVbML79IeLXXQOSSI5GsvILk475mcMFXbbdEPCHtPfmxXb-ShtOqHaMucDtbI1AElH6M8JSmu1oTrJprbJ0lOZjZhDgCEPETCtalE995EuWVjhDItljGK_P8XDVs2Qy3kP8X8rb2jpo5NPkV_Uae415vqgnI6sbUmrdAFop85uIDi2smq7DMBxkUkkPwtpSe1JSir23hxzAy7lWE9rXjenq7TPKmCXRRCzS3L7IP6GoU4kbjXKM6G7gYaKkXXrPDoqSuFjVVtXQdRs-xaVs2RmyblnCJRMMrEpiXwaTgaVRYLVdq6qGIqN6_oNDgvapZ5IWRGfIkWomDJEozkxapl0eL3mAKu-zupoYZCS21TLTVl1xsKpapmZ3nPwSMrecXqiMkAy5vc5tWMTDOV-eRzy4XzWThP0ZhocQEcTskqKTZookGJCYA4yoHbdDwjrv29rnK_7QNUGNwxxnTIXs3DA0fbn5AKZ7QTcdN743Emx_OWHyN-TPkProZMJzLSCy_eaWiz8KXQGa1Oscc6prTAz4C9Gp5MSVvH95Z-KjuxAvOzUWrvoCqPJqNZLjPkEWxW3077BaVjg4sRKkbWUZ-y9v9PqOO5ZcjsEmcEGKfsyx2zkRl1GHPDXYE5Xd0AU_9NpV_V8A08gxIU2zhMr0Jj9X2sqe_fZtCVXl6s9zXWkKg3iB_Sq4hn6BiKW9KSHqIwYbx9gMHkh4LG0yyMMFaWsxXuWAWE_L5Yv9nxhbTL-kl4A3ZN_eeITgpijX6w-r71OLMRyUg1YU5VoydEmYz9Xo8Y29oKjpO6HxAihDgdd5BIOr8e7ZTpk59Wj9YFlIUt94LYkJR1_TDJ7_yrAEL95WhK3O5rphO72LwqgBpFY6u1Wtt8LHVAX3vfMoOQ7cNsDHcZxPth-tvzajUUCp0_zx3UFrsY1c8u9h9bGuTTN9e33rIWteIGmziopMIVIjkiazBD-5sTBAu2ytimCvon3ayLI8nFLsBWZva0SJ4OFRVtlo5n63hAqVeucePO1i2O3eS1nKAseyCuYafWUhgPI5VtVp9DPfpyt58FFL84BkiOQNZWVOfLLjW3TzMTtRnTFpcnYwoDclBQLNffhnRd83POR9_CzA" mozallowfullscreen="true" webkitallowfullscreen="true" allowfullscreen="true" frameborder="0" style="position:absolute;width:100%;height:100%;left:0"></iframe></p>`,
-            description: "Understand the core purpose of React in building modern interactive UIs. Setup your local environment or standard web container using GitHub Codespaces, and configure VS Code for development.",
-            lessonMD: lesson1MD
+            embedHtml: `<div style="position:relative;height:0;padding-bottom:56.25%"><iframe width="640" height="360" src="https://www.linkedin.com/learning/embed/react-essential-training/what-is-react?autoplay=false&claim=AQEHLl4QbTXGGgAAAZ9qdFZ73aVG2RrTJ-nZGoPaJfZY7IKfL46VpVQrTVDMTpX_VxwsrM1BTJwK4D0HS1_xye_fcCApnC8JNCj5w0huFGB3ks1easADLIUHIFAYwoCVoPBdAoxggof2D3v198TNdzzn9Ephk_qPGGs3DkfiiuLe3KwigE3pB_XIFtLWyLRijYrTVNp7rWD01Ef__1eDwB0f0BD9MYlSs1XT55F50qDfFBMluFC3pona5iR7CatqXkLbp7c2pVZWS7GakVwo2O3WRCLaYDq7tpBQ0Yuj-9fp03wKWj-6vdnJjZ5Bsriyq9_Ped5nmYuprgOLZhZxm4ln0g931_i7-0XoBbxGXPrjmbYMFDEubGCP9KLelzSY6QURvsb7PCQBJUsEa9vLMFShiKj4guPYuUcTU2MyJJyZRcaHRyUX5cQ2y1_ZDm4hVYu3wLKovf8Yl7iGe4D932WvXU7iNlXq-3mu9K6YlQxKZLTYreRaD-94Z8OQFgvaDh7rwgIsr-pAyCP6JUoP8TyB8gCFZpoLQYVCOiFoIP8s6qfORBZi1vT2DYeFYxPwz6rDYPQhUXCZnXc-sUwOCD_IjZwkuxbYaF6v9f9SwmA48U5iO4Boq2loyyeV3Hg95fDJGQ_oUOE2f6LJyfFVHsG1_TtEMiptm4CBcG5qrfKlhO3GcX7t6mPOwLapg45zJ7qNnNPr5G_s6Bot2CLMs-Wu3FcT-KddHOHjQJdTYco67VD2arxJSGu2adu2Vn9ykH0rdkQvbajbg2IUnO216T2NaCfN8NR4_FEBRstLcXZKM6hIMOGZeoldaXbtiVcbX557T6KeLk5M3hrwy2FKwEJKPwcD13WqF-5qq7MOnXUGdEKGYI0M1PO5OYd9xzz22DAds1CWfbntGUt23pOVREPOYEEwsG54RVBLwG_sZ3sfttXkfiHvQJiZHefvz1Xn9eJcqyEhhJmTLoCsJI4fiV8ttlgci-HATuvNzErApAMKLtQLqezYrep6td8XE8KWjGwiJZQEmsvDw8l-s4AhqmvQzHojJYJ36r2tPTqVLQ_CIoAVDnfs19eV411tN3LDuFzjrKXgFFLjSS4p3N7e-jxgh9wZw8HlwBsJyiU7drJGmjntfC36Z2z7-vA6acR4LLX6xLgc5l5pzuBwCnSOflt90DUFqg4CgFHUUooMRm-u8WNXmBnJg5mTbBCqL1Weoha2ZEBRUlv2J5WdAtD9HdDM9wCgNEiKJ4Aq0VTjIZ9EvBDvXYAFv3crvYlPYp3D37v454o3-g0OExnpx7aeOICuh5XFab097w" mozallowfullscreen="true" webkitallowfullscreen="true" allowfullscreen="true" frameborder="0" style="position:absolute;width:100%;height:100%;left:0"></iframe></div><p className="mt-3 text-xs text-slate-400"><strong><a href="https://www.linkedin.com/learning/react-essential-training/what-is-react?trk=embed_lil" target="_blank" rel="noreferrer" class="text-brand-gold hover:underline">What is React?</a></strong> from <strong><a href="https://www.linkedin.com/learning/react-essential-training?trk=embed_lil" target="_blank" rel="noreferrer" class="text-brand-gold hover:underline">React Essential Training</a></strong> by <strong><a href="https://www.linkedin.com/learning/instructors/eve-porcello?trk=embed_lil" target="_blank" rel="noreferrer" class="text-brand-gold hover:underline">Eve Porcello</a></strong></p>`,
+            description: "Understand the core purpose of React in building modern interactive UIs. Setup your local environment or standard web container using GitHub Codespaces, and configure VS Code for development."
           },
           {
             id: "cs-l2",
             title: "1.2 How React Works Under the Hood & React Compiler",
-            duration: "8:21",
+            duration: "18:45",
             durationSeconds: 1125,
             videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-            embedHtml: `<iframe width="862" height="485" src="https://www.youtube.com/embed/-xwXPYEc8nc?list=PLIAAss__korQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
-            description: "Deconstruct the Virtual DOM reconciliation, fiber nodes, and the brand-new React compiler. See how React optimizes renders automatically.",
-            lessonMD: lesson1MD
+            description: "Deconstruct the Virtual DOM reconciliation, fiber nodes, and the brand-new React compiler. See how React optimizes renders automatically."
           },
           {
             id: "cs-l3",

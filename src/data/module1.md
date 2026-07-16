@@ -1,8 +1,4 @@
----
-layout: default
-title: Getting Started with ReactJS and JSX | HAU APSI Classroom
----
-
+<div>
 <section class="relative py-16 px-6 text-center text-white" style="background: linear-gradient(135deg, rgb(107, 29, 46), rgb(74, 19, 32));">
   <div class="relative z-10 max-w-4xl mx-auto">
     <h1 class="font-bold mb-4 text-3xl md:text-4xl text-white">Getting Started with ReactJS and JSX</h1>
@@ -252,5 +248,5 @@ title: Getting Started with ReactJS and JSX | HAU APSI Classroom
     </ul>
     <a href="https://classroom50.org/HAU-SOC"  class="inline-block px-8 py-3 rounded-lg font-bold transition hover:opacity-90" style="background: rgb(245, 196, 90); color: rgb(74, 19, 32);">Class Portal</a>
   </section>
-
-</main>
+  </main>
+</div>

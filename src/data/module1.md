@@ -6,15 +6,12 @@
   </div>
 </section>
 
-<main class="max-w-4xl mx-auto px-6 py-12 space-y-12">
 
   <section id="requirements">
     <h2 class="text-2xl font-bold text-maroon mb-6 border-b-2 border-gray-200 pb-2">1. Requirements & Setup</h2>
-    
     <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-gold mb-6">
       <h3 class="text-xl font-semibold text-gray-900 mb-4">Development Environment Setup</h3>
       <p class="text-gray-700 mb-6">Professional development requires a specific toolchain to ensure consistency and efficiency. You should have a good understanding of HTML, CSS, and JavaScript before proceeding.</p>
-      
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2"><i data-lucide="download" class="w-4 h-4 text-maroon"></i> Software Installation</h4>
@@ -32,7 +29,6 @@
           </ul>
         </div>
       </div>
-
       <h4 class="font-bold text-gray-900 mt-6 mb-2 flex items-center gap-2"><i data-lucide="puzzle" class="w-4 h-4 text-maroon"></i> VS Code Extensions</h4>
       <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm">
         <li><strong>Live Server:</strong> Used initially for simple HTML files.</li>
@@ -49,11 +45,7 @@
         <li>See <a href="https://reactjs.org/versions/" target="_blank" class="text-maroon hover:underline font-medium">React versions</a></li>
         <li>Read the <a href="https://reactjs.org/docs/getting-started.html" target="_blank" class="text-maroon hover:underline font-medium">Official Documentation</a></li>
       </ul>
-
       <h3 class="text-xl font-semibold text-gray-900 mb-4">Why React?</h3>
-      
-      
-
       <div class="space-y-6">
         <div>
           <h4 class="font-bold text-maroon mb-2">Core Technical Advantages</h4>
@@ -248,5 +240,5 @@
     </ul>
     <a href="https://classroom50.org/HAU-SOC"  class="inline-block px-8 py-3 rounded-lg font-bold transition hover:opacity-90" style="background: rgb(245, 196, 90); color: rgb(74, 19, 32);">Class Portal</a>
   </section>
-  </main>
+
 </div>

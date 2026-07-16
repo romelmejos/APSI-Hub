@@ -2,6 +2,8 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 import React, { useState, useEffect, useRef } from "react";
 import { Play, Pause, RotateCcw, Volume2, VolumeX, Maximize2, CheckSquare, Square, ChevronRight, FileText, Download, MessageSquare, ThumbsUp, Send, Bookmark, Trash2, ArrowLeft, AlertCircle } from "lucide-react";
@@ -587,9 +589,12 @@ export default function LearningPage({
             {activeTab === "notes" && (
               <div className="p-6 space-y-6" id="tab-window-notes">
                
-                  <div className="flex justify-between items-center">
-                    {activeLesson.lessonMD}
-                   </div>
+                  
+                    <div className="w-full">
+                      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                        {activeLesson.lessonMD}
+                      </ReactMarkdown>
+                    </div>
              
 
 

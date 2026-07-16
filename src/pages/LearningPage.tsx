@@ -399,7 +399,7 @@ export default function LearningPage({
                       : "text-slate-400 hover:text-white"
                   }`}
                 >
-                  Live Lecture Embed
+                   Lecture 
                 </button>
                 <button
                   onClick={() => setUseEmbed(false)}

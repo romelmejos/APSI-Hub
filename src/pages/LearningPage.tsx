@@ -586,40 +586,13 @@ export default function LearningPage({
             {/* TAB WINDOW 1: MY LECTURE NOTES */}
             {activeTab === "notes" && (
               <div className="p-6 space-y-6" id="tab-window-notes">
-                <form onSubmit={handleSaveNote} className="space-y-3">
+               
                   <div className="flex justify-between items-center">
-                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Type Custom Note</label>
-                    <button
-                      type="button"
-                      onClick={handleCaptureTimestamp}
-                      className="inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-maroon dark:text-brand-gold hover:underline"
-                    >
-                      <Bookmark className="w-3.5 h-3.5" />
-                      <span>Tag current play time ({formatTime(currentTime)})</span>
-                    </button>
-                    
-                    <div>{activeLesson.description}</div>
-                      
-                  </div>
+                    {activeLesson.description}
+                   </div>
+              </div>
 
-                  <textarea
-                    rows={3}
-                    placeholder="Wrote down main equations, reference codes, or theoretical questions here..."
-                    value={noteText}
-                    onChange={(e) => setNoteText(e.target.value)}
-                    className="w-full text-xs sm:text-sm p-4 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-maroon"
-                  />
-
-                  <div className="flex justify-end">
-                    <button
-                      type="submit"
-                      disabled={!noteText.trim()}
-                      className="px-5 h-9 bg-brand-maroon text-white rounded-lg text-xs font-bold hover:bg-brand-maroon-light disabled:opacity-40 disabled:hover:bg-brand-maroon shadow-md transition-colors border border-brand-gold/15"
-                    >
-                      Save Note Pin
-                    </button>
-                  </div>
-                </form>
+             
 
                 {/* Saved list */}
                 <div className="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-700">

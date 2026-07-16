@@ -368,9 +368,24 @@ export default function LearningPage({
         {/* LEFT TWO COLUMNS: DYNAMIC VIDEO PLAYER AND WRITING TABS */}
         <div className="lg:col-span-2 space-y-6">
           
-          {/* A. CUSTOM INTERACTIVE VIDEO PLAYER */}
-          <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-xl border border-slate-950 relative group" id="workspace-video-player">
+          {/* A. CUSTOM INTERACTIVE VIDEO PLAYER WITH PROFESSOR'S DESK AESTHETIC */}
+          <div 
+            className={`rounded-2xl overflow-hidden relative group transition-all duration-300 ${
+              useEmbed 
+                ? "bg-slate-950 border-[5px] border-brand-maroon shadow-[0_25px_60px_-15px_rgba(128,0,32,0.45)] dark:shadow-[0_25px_60px_-15px_rgba(128,0,32,0.35)] ring-1 ring-brand-gold/40" 
+                : "bg-slate-900 border border-slate-950 shadow-xl"
+            }`} 
+            id="workspace-video-player"
+          >
             
+            {/* Professor's Desk Badge / Nameplate */}
+            {useEmbed && (
+              <div className="absolute top-3 right-3 z-20 bg-gradient-to-r from-brand-maroon to-brand-maroon-dark text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-md shadow-md text-[9px] font-mono uppercase tracking-widest font-semibold flex items-center gap-1.5 backdrop-blur-sm pointer-events-none select-none">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
+                HAU Lectern • Prof. Mejos
+              </div>
+            )}
+
             {/* Player Source Selector (only shown if embedHtml is available for the active lesson) */}
             {activeLesson.embedHtml && (
               <div className="absolute top-3 left-3 z-20 flex gap-1 bg-slate-950/85 p-1 rounded-lg border border-white/10 backdrop-blur-sm shadow-md transition-opacity group-hover:opacity-100">

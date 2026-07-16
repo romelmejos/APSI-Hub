@@ -597,6 +597,9 @@ export default function LearningPage({
                       <Bookmark className="w-3.5 h-3.5" />
                       <span>Tag current play time ({formatTime(currentTime)})</span>
                     </button>
+                    
+                    <div>{activeLesson.description}</div>
+                      
                   </div>
 
                   <textarea

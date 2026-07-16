@@ -54,20 +54,13 @@ export default function App() {
       setEnrolled(JSON.parse(savedEnroll));
       setCompletedLessons(JSON.parse(savedLessons));
     } else {
-      // Pre-enroll student in 2 realistic courses to make the dashboard render beautifully on first launch!
+      // Pre-enroll student in CS-101 to make the dashboard render beautifully on first launch!
       const initialEnroll: EnrolledCourse[] = [
         {
           courseId: "CS-101",
-          progress: 33, // Updated dynamically by lessons count, but starts here
+          progress: 18, // Dynamic progress on lessons completion
           lastLessonId: "cs-l1",
           completedLessons: ["cs-l1"],
-          enrolledAt: new Date().toLocaleDateString()
-        },
-        {
-          courseId: "BIO-205",
-          progress: 0,
-          lastLessonId: "bio-l1",
-          completedLessons: [],
           enrolledAt: new Date().toLocaleDateString()
         }
       ];
@@ -80,8 +73,8 @@ export default function App() {
 
     // 2. Load Notifications
     const defaultNotifs = [
-      { id: "notif-1", text: "Welcome to EduLearn! Explore and select from our Ivy League-inspired curriculums.", time: "Just now", read: false },
-      { id: "notif-2", text: "You have been pre-enrolled in CS-101: Deep Learning to start tracking your curriculum immediately.", time: "Just now", read: false }
+      { id: "notif-1", text: "Welcome to the Application and System Integration (CS-101) Course Portal! Prof. Romel Mejos welcomes you.", time: "Just now", read: false },
+      { id: "notif-2", text: "You have been registered in CS-101. Access your curriculum dashboard to start streaming lectures.", time: "Just now", read: false }
     ];
     setNotifications(defaultNotifs);
   }, []);

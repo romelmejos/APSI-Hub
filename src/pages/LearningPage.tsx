@@ -24,6 +24,12 @@ export default function LearningPage({
 }: LearningPageProps) {
   // Navigation & Active States
   const [activeLesson, setActiveLesson] = useState<Lesson>(course.curriculum[0].lessons[0]);
+  const [useEmbed, setUseEmbed] = useState(!!activeLesson.embedHtml);
+
+  useEffect(() => {
+    setUseEmbed(!!activeLesson.embedHtml);
+  }, [activeLesson]);
+
   const [activeTab, setActiveTab] = useState<"notes" | "discussion" | "resources">("notes");
   
   // Video Player Ref & States
@@ -365,19 +371,53 @@ export default function LearningPage({
           {/* A. CUSTOM INTERACTIVE VIDEO PLAYER */}
           <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-xl border border-slate-950 relative group" id="workspace-video-player">
             
+            {/* Player Source Selector (only shown if embedHtml is available for the active lesson) */}
+            {activeLesson.embedHtml && (
+              <div className="absolute top-3 left-3 z-20 flex gap-1 bg-slate-950/85 p-1 rounded-lg border border-white/10 backdrop-blur-sm shadow-md transition-opacity group-hover:opacity-100">
+                <button
+                  onClick={() => setUseEmbed(true)}
+                  className={`px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded transition-all ${
+                    useEmbed
+                      ? "bg-brand-maroon text-white shadow"
+                      : "text-slate-400 hover:text-white"
+                  }`}
+                >
+                  Live Lecture Embed
+                </button>
+                <button
+                  onClick={() => setUseEmbed(false)}
+                  className={`px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded transition-all ${
+                    !useEmbed
+                      ? "bg-brand-maroon text-white shadow"
+                      : "text-slate-400 hover:text-white"
+                  }`}
+                >
+                  Interactive Simulator
+                </button>
+              </div>
+            )}
+
             {/* Real HTML5 video tag */}
             <video
               ref={videoRef}
               src={activeLesson.videoUrl}
               onTimeUpdate={handleTimeUpdate}
               onLoadedMetadata={handleLoadedMetadata}
-              className="w-full aspect-video object-contain"
+              className={`w-full aspect-video object-contain ${useEmbed ? "hidden" : "block"}`}
               onClick={handlePlayPause}
               id="html5-video-tag"
             />
 
+            {/* Embedded Iframe Player */}
+            {useEmbed && activeLesson.embedHtml && (
+              <div 
+                className="w-full aspect-video bg-black flex items-center justify-center overflow-hidden [&>div]:w-full [&>div]:h-full [&>div]:relative [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:w-full [&_iframe]:h-full"
+                dangerouslySetInnerHTML={{ __html: activeLesson.embedHtml }}
+              />
+            )}
+
             {/* Video Error Overlay Fallback */}
-            {videoLoadError && (
+            {!useEmbed && videoLoadError && (
               <div className="absolute inset-0 bg-slate-950/90 flex flex-col items-center justify-center text-center p-6 text-white z-10">
                 <AlertCircle className="w-12 h-12 text-rose-500 mb-3 animate-bounce" />
                 <h4 className="font-display font-bold text-base">Network Player Constraint</h4>
@@ -394,88 +434,90 @@ export default function LearningPage({
             )}
 
             {/* Premium Custom Player overlay HUD bar (visible on group-hover) */}
-            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 flex flex-col gap-3 transition-opacity duration-300 opacity-90 group-hover:opacity-100 select-none">
-              
-              {/* Timeline scrub slider */}
-              <div className="flex items-center gap-3">
-                <span className="text-[10px] font-mono font-bold text-white/90">
-                  {formatTime(currentTime)}
-                </span>
-                <input
-                  type="range"
-                  min="0"
-                  max={duration || 100}
-                  value={currentTime}
-                  onChange={handleTimelineChange}
-                  className="flex-1 h-1 bg-white/30 rounded-full appearance-none cursor-pointer accent-brand-maroon"
-                  id="video-timeline-slider"
-                />
-                <span className="text-[10px] font-mono font-bold text-white/90">
-                  {formatTime(duration)}
-                </span>
-              </div>
+            {!useEmbed && (
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 flex flex-col gap-3 transition-opacity duration-300 opacity-90 group-hover:opacity-100 select-none">
+                
+                {/* Timeline scrub slider */}
+                <div className="flex items-center gap-3">
+                  <span className="text-[10px] font-mono font-bold text-white/90">
+                    {formatTime(currentTime)}
+                  </span>
+                  <input
+                    type="range"
+                    min="0"
+                    max={duration || 100}
+                    value={currentTime}
+                    onChange={handleTimelineChange}
+                    className="flex-1 h-1 bg-white/30 rounded-full appearance-none cursor-pointer accent-brand-maroon"
+                    id="video-timeline-slider"
+                  />
+                  <span className="text-[10px] font-mono font-bold text-white/90">
+                    {formatTime(duration)}
+                  </span>
+                </div>
 
-              {/* Player control panel buttons */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  {/* Play / Pause Toggle */}
-                  <button
-                    onClick={handlePlayPause}
-                    className="p-1.5 rounded-lg text-white hover:bg-white/10 transition-colors"
-                    aria-label="Play/Pause Video"
-                    id="video-play-btn"
-                  >
-                    {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current" />}
-                  </button>
-
-                  {/* Restart */}
-                  <button
-                    onClick={restartVideo}
-                    className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-                    aria-label="Restart Video"
-                  >
-                    <RotateCcw className="w-4.5 h-4.5" />
-                  </button>
-
-                  {/* Volume Slider Block */}
-                  <div className="flex items-center gap-1.5">
+                {/* Player control panel buttons */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    {/* Play / Pause Toggle */}
                     <button
-                      onClick={toggleMute}
-                      className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-                      aria-label="Mute Video"
+                      onClick={handlePlayPause}
+                      className="p-1.5 rounded-lg text-white hover:bg-white/10 transition-colors"
+                      aria-label="Play/Pause Video"
+                      id="video-play-btn"
                     >
-                      {isMuted ? <VolumeX className="w-4.5 h-4.5" /> : <Volume2 className="w-4.5 h-4.5" />}
+                      {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current" />}
                     </button>
-                    <input
-                      type="range"
-                      min="0"
-                      max="1"
-                      step="0.1"
-                      value={isMuted ? 0 : volume}
-                      onChange={handleVolumeChange}
-                      className="w-16 h-1 bg-white/30 rounded-full appearance-none accent-brand-maroon"
-                    />
+
+                    {/* Restart */}
+                    <button
+                      onClick={restartVideo}
+                      className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                      aria-label="Restart Video"
+                    >
+                      <RotateCcw className="w-4.5 h-4.5" />
+                    </button>
+
+                    {/* Volume Slider Block */}
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={toggleMute}
+                        className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                        aria-label="Mute Video"
+                      >
+                        {isMuted ? <VolumeX className="w-4.5 h-4.5" /> : <Volume2 className="w-4.5 h-4.5" />}
+                      </button>
+                      <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.1"
+                        value={isMuted ? 0 : volume}
+                        onChange={handleVolumeChange}
+                        className="w-16 h-1 bg-white/30 rounded-full appearance-none accent-brand-maroon"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Right widgets */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-[10px] bg-white/10 text-white font-semibold font-sans uppercase tracking-wider px-2 py-0.5 rounded border border-white/10">
+                      HD 1080p
+                    </span>
+                    
+                    {/* Full screen */}
+                    <button
+                      onClick={handleFullScreen}
+                      className="p-1.5 rounded-lg text-white hover:bg-white/10 transition-colors"
+                      aria-label="Toggle Fullscreen"
+                    >
+                      <Maximize2 className="w-4.5 h-4.5" />
+                    </button>
                   </div>
                 </div>
 
-                {/* Right widgets */}
-                <div className="flex items-center gap-3">
-                  <span className="text-[10px] bg-white/10 text-white font-semibold font-sans uppercase tracking-wider px-2 py-0.5 rounded border border-white/10">
-                    HD 1080p
-                  </span>
-                  
-                  {/* Full screen */}
-                  <button
-                    onClick={handleFullScreen}
-                    className="p-1.5 rounded-lg text-white hover:bg-white/10 transition-colors"
-                    aria-label="Toggle Fullscreen"
-                  >
-                    <Maximize2 className="w-4.5 h-4.5" />
-                  </button>
-                </div>
               </div>
-
-            </div>
+            )}
 
           </div>
 

@@ -61,7 +61,7 @@ export default function Navbar({
             </div>
             <div className="flex flex-col leading-none">
               <span className="font-display font-black text-sm tracking-tight text-slate-900 dark:text-white uppercase">
-                HAU <span className="text-brand-maroon dark:text-brand-gold">School of Computing</span>
+                HAU <span className="text-brand-maroon dark:text-brand-gold">Holy Angel University</span>
               </span>
               <span className="text-[9px] font-bold text-brand-orange dark:text-brand-gold-dark uppercase tracking-widest mt-0.5">
                 College Student Council

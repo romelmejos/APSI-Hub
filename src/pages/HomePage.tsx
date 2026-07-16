@@ -212,63 +212,102 @@ export default function HomePage({ courses, setView, setSelectedCourseId, setSea
 
       {/* 2. STATS OVERVIEW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="home-stats">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 bg-white dark:bg-slate-800 border border-slate-200 rounded-2xl shadow-sm">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-sm">
           <div className="text-center space-y-1 border-r border-slate-100 dark:border-slate-700 last:border-none">
-            <p className="font-display font-extrabold text-3xl sm:text-4xl text-brand-maroon dark:text-brand-gold">140+</p>
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Academic Partners</p>
+            <p className="font-display font-extrabold text-3xl sm:text-4xl text-brand-maroon dark:text-brand-gold">6</p>
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Comprehensive Modules</p>
           </div>
           <div className="text-center space-y-1 md:border-r border-slate-100 dark:border-slate-700 last:border-none">
-            <p className="font-display font-extrabold text-3xl sm:text-4xl text-brand-orange">25,000+</p>
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Active Cohorts</p>
+            <p className="font-display font-extrabold text-3xl sm:text-4xl text-brand-orange">16</p>
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Deep Dive Lessons</p>
           </div>
           <div className="text-center space-y-1 border-r border-slate-100 dark:border-slate-700 last:border-none">
-            <p className="font-display font-extrabold text-3xl sm:text-4xl text-brand-maroon-light">98.2%</p>
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Completion Rate</p>
+            <p className="font-display font-extrabold text-3xl sm:text-4xl text-brand-maroon-light">9</p>
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Verified Outcomes</p>
           </div>
           <div className="text-center space-y-1 last:border-none">
-            <p className="font-display font-extrabold text-3xl sm:text-4xl text-brand-gold-dark">42,000</p>
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Verifiable Badges</p>
+            <p className="font-display font-extrabold text-3xl sm:text-4xl text-brand-gold-dark">100%</p>
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">SOC HAU Course Focus</p>
           </div>
         </div>
       </section>
 
-      {/* 3. CATEGORIES SECTION */}
+      {/* 3. KEY COURSE TECHNOLOGIES */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="home-categories">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight">Explore Popular Disciplines</h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400 font-sans mt-1">Navigate HAU-verified study curricula across computing, science, and creative arts.</p>
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight">Core Curriculum Integration Stack</h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400 font-sans mt-1">Master production-grade React patterns, Next.js structures, and secure server-to-client boundaries.</p>
           </div>
           <button
-            onClick={() => { setSearchQuery(""); setView("catalog"); }}
+            onClick={() => { setSelectedCourseId("CS-101"); setView("details"); }}
             className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-maroon dark:text-brand-gold hover:gap-2.5 transition-all duration-150 uppercase tracking-wider"
           >
-            <span>Browse Full Catalog</span>
+            <span>View Complete Syllabus</span>
             <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((cat, idx) => {
-            const IconComponent = cat.icon;
-            return (
-              <div
-                key={idx}
-                onClick={() => handleCategoryClick(cat.name)}
-                className={`group p-6 rounded-2xl border bg-gradient-to-br ${cat.color} hover:shadow-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-1`}
-              >
-                <div className="p-3 rounded-xl bg-white dark:bg-slate-800 w-fit shadow-sm border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform duration-200">
-                  <IconComponent className="w-5 h-5" />
-                </div>
-                <h3 className="font-display font-bold text-base text-slate-900 dark:text-white mt-4 mb-1">
-                  {cat.name}
-                </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-sans">
-                  {cat.count}
-                </p>
-              </div>
-            );
-          })}
+          <div
+            onClick={() => { setSearchQuery("React Elements"); setView("catalog"); }}
+            className="group p-6 rounded-2xl border bg-gradient-to-br from-brand-orange/10 to-brand-gold/10 border-brand-orange/20 dark:border-brand-orange/40 text-brand-orange dark:text-brand-gold hover:shadow-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <div className="p-3 rounded-xl bg-white dark:bg-slate-800 w-fit shadow-sm border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform duration-200">
+              <Code className="w-5 h-5" />
+            </div>
+            <h3 className="font-display font-bold text-base text-slate-900 dark:text-white mt-4 mb-1">
+              JSX & Prop Architecture
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-sans">
+              Learn destructuring, defaultProps, and structural JSX rendering.
+            </p>
+          </div>
+
+          <div
+            onClick={() => { setSearchQuery("Hooks"); setView("catalog"); }}
+            className="group p-6 rounded-2xl border bg-gradient-to-br from-brand-maroon/10 to-brand-maroon-light/10 border-brand-maroon/20 dark:border-brand-maroon/40 text-brand-maroon dark:text-brand-gold hover:shadow-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <div className="p-3 rounded-xl bg-white dark:bg-slate-800 w-fit shadow-sm border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform duration-200">
+              <BrainCircuit className="w-5 h-5" />
+            </div>
+            <h3 className="font-display font-bold text-base text-slate-900 dark:text-white mt-4 mb-1">
+              React Hooks In-Depth
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-sans">
+              Master useState, useReducer, useEffect side effects, and cleanups.
+            </p>
+          </div>
+
+          <div
+            onClick={() => { setSearchQuery("Next.js"); setView("catalog"); }}
+            className="group p-6 rounded-2xl border bg-gradient-to-br from-brand-gold/10 to-brand-orange/10 border-brand-gold/20 dark:border-brand-gold/40 text-brand-gold-dark dark:text-brand-gold hover:shadow-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <div className="p-3 rounded-xl bg-white dark:bg-slate-800 w-fit shadow-sm border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform duration-200">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <h3 className="font-display font-bold text-base text-slate-900 dark:text-white mt-4 mb-1">
+              RSC Boundaries
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-sans">
+              Determine server and client boundaries to build lightweight static resources.
+            </p>
+          </div>
+
+          <div
+            onClick={() => { setSearchQuery("Server Actions"); setView("catalog"); }}
+            className="group p-6 rounded-2xl border bg-gradient-to-br from-brand-maroon-light/10 to-brand-gold/10 border-brand-maroon-light/20 dark:border-brand-maroon-light/40 text-brand-maroon-light dark:text-brand-gold hover:shadow-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <div className="p-3 rounded-xl bg-white dark:bg-slate-800 w-fit shadow-sm border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform duration-200">
+              <Feather className="w-5 h-5" />
+            </div>
+            <h3 className="font-display font-bold text-base text-slate-900 dark:text-white mt-4 mb-1">
+              Secure Server Actions
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-sans">
+              Connect raw forms directly to backend endpoints safely.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -276,19 +315,12 @@ export default function HomePage({ courses, setView, setSelectedCourseId, setSea
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="home-featured-courses">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight">Featured Syllabi</h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400 font-sans mt-1">Our highest-rated, academically rigorous modules currently in active cohort.</p>
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight">Active Course Syllabus</h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400 font-sans mt-1">Enroll in the accredited web integration curriculum currently running in active cohort.</p>
           </div>
-          <button
-            onClick={() => { setSearchQuery(""); setView("catalog"); }}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-maroon dark:text-brand-gold hover:gap-2.5 transition-all duration-150 uppercase tracking-wider"
-          >
-            <span>View All Courses</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredCourses.map((course) => (
             <CourseCard
               key={course.id}
@@ -306,27 +338,27 @@ export default function HomePage({ courses, setView, setSelectedCourseId, setSea
             <div className="p-3 bg-brand-maroon/10 text-brand-maroon dark:text-brand-gold rounded-xl w-fit mx-auto md:mx-0">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">Rigorous Assessments</h3>
+            <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">Prof. Romel Mejos</h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 font-sans leading-relaxed">
-              Assignments designed by leading global university professors to ensure accurate conceptual testing and strong cognitive development.
+              Curriculum engineered, taught, and evaluated directly by senior front-end software architect Prof. Romel Mejos.
             </p>
           </div>
           <div className="space-y-3 p-4">
             <div className="p-3 bg-brand-orange/10 text-brand-orange dark:text-brand-orange-light rounded-xl w-fit mx-auto md:mx-0">
               <Award className="w-6 h-6" />
             </div>
-            <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">Accredited Credentials</h3>
+            <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">HAU SoC Accreditation</h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 font-sans leading-relaxed">
-              Earn verifiably encrypted cryptographic badges upon curriculum graduation to showcase securely on professional job pipelines.
+              Earn official completion status and display-ready cryptographic credentials registered under Holy Angel University.
             </p>
           </div>
           <div className="space-y-3 p-4">
             <div className="p-3 bg-brand-gold/10 text-brand-gold-dark rounded-xl w-fit mx-auto md:mx-0">
               <HeartHandshake className="w-6 h-6" />
             </div>
-            <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">Global Cohorts</h3>
+            <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">Active Student Forum</h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 font-sans leading-relaxed">
-              Collaborate and study side-by-side with fellow university students through lesson discussion boards and interactive forums.
+              Interact, post study issues, download code slides, and query lesson content on the course dashboard.
             </p>
           </div>
         </div>

@@ -23,26 +23,29 @@ export default function DashboardPage({
   setSelectedCourseId
 }: DashboardPageProps) {
   
-  // Find course full details
-  const enrolledFull = enrolled.map(e => {
-    const course = courses.find(c => c.id === e.courseId)!;
-    
-    // Calculate actual progress based on completed lessons
-    const totalLessons = course.curriculum.reduce((acc, curr) => acc + curr.lessons.length, 0);
-    const completedInThisCourse = course.curriculum.reduce((acc, curr) => {
-      return acc + curr.lessons.filter(l => completedLessons.includes(l.id)).length;
-    }, 0);
-    
-    const calculatedProgress = totalLessons > 0 ? Math.round((completedInThisCourse / totalLessons) * 100) : 0;
-    
-    return {
-      ...e,
-      course,
-      progress: calculatedProgress,
-      totalLessons,
-      completedInThisCourse
-    };
-  });
+  // Find course full details safely (filtering out non-existent courses from historical state)
+  const enrolledFull = enrolled
+    .map(e => {
+      const course = courses.find(c => c.id === e.courseId);
+      if (!course) return null;
+      
+      // Calculate actual progress based on completed lessons
+      const totalLessons = course.curriculum.reduce((acc, curr) => acc + curr.lessons.length, 0);
+      const completedInThisCourse = course.curriculum.reduce((acc, curr) => {
+        return acc + curr.lessons.filter(l => completedLessons.includes(l.id)).length;
+      }, 0);
+      
+      const calculatedProgress = totalLessons > 0 ? Math.round((completedInThisCourse / totalLessons) * 100) : 0;
+      
+      return {
+        ...e,
+        course,
+        progress: calculatedProgress,
+        totalLessons,
+        completedInThisCourse
+      };
+    })
+    .filter((e): e is NonNullable<typeof e> => e !== null);
 
   // Analytics
   const totalCompletedLessonsCount = completedLessons.length;
@@ -76,7 +79,7 @@ export default function DashboardPage({
             <h1 className="font-display font-black text-2xl sm:text-3xl tracking-tight">Romel Mejos</h1>
             <p className="text-xs text-slate-400 font-sans font-light flex items-center gap-1.5">
               <GraduationCap className="w-4 h-4 text-slate-400" />
-              <span>UC Berkeley • Computer Science & Neuro-Computing</span>
+              <span>Holy Angel University • School of Computing</span>
             </p>
           </div>
         </div>

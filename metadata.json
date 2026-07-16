@@ -1,6 +1,6 @@
 {
   "name": "EduLearn Portal",
-  "description": "A responsive, high-fidelity educational learning platform for university students featuring dynamic course catalogs, interactive lessons, progress tracking, and custom notes.",
+  "description": "An interactive course portal for Application and System Integration (CS-101) at Holy Angel University, featuring dynamic lecture streaming, active student forums, and syllabus notes overseen by Prof. Romel Mejos.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

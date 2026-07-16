@@ -1,0 +1,6 @@
+{
+  "name": "EduLearn Portal",
+  "description": "A responsive, high-fidelity educational learning platform for university students featuring dynamic course catalogs, interactive lessons, progress tracking, and custom notes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

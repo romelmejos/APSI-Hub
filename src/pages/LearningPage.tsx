@@ -588,7 +588,7 @@ export default function LearningPage({
               <div className="p-6 space-y-6" id="tab-window-notes">
                
                   <div className="flex justify-between items-center">
-                    {activeLesson.description}
+                    {activeLesson.lessonMD}
                    </div>
              
 

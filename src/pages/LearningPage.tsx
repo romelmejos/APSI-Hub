@@ -646,19 +646,19 @@ export default function LearningPage({
               <div className="p-6 space-y-8" id="tab-window-discussion">
                 {/* Ask a new question form */}
                 <h4 className="text-xs font-bold text-brand-maroon dark:text-brand-gold uppercase tracking-widest">SANDBOX</h4>
-                    <iframe 
-                        height="400" 
-                        style={{ width: "100%" }} 
-                        scrolling="no" 
-                        title="React JSX Demo" 
-                        src="https://codepen.io/gaearon/embed/oWWQNa?default-tab=js,result&theme-id=dark" 
-                        frameBorder="0" 
-                        loading="lazy" 
-                        allowTransparency={true} 
-                        allowFullScreen={true}
-                      >
-                        See the Pen <a href="https://codepen.io/gaearon/pen/oWWQNa">React JSX Demo</a> on CodePen.
-                      </iframe>
+                   <iframe 
+                    src="https://codesandbox.io/embed/react-new?fontsize=14&hidenavigation=1&theme=dark"
+                    style={{ 
+                      width: "100%", 
+                      height: "500px", 
+                      border: 0, 
+                      borderRadius: "4px", 
+                      overflow: "hidden" 
+                    }}
+                    title="React Live Simulator"
+                    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                  ></iframe>
 
                 {/* Posts listing */}
                 <div className="space-y-6 pt-4 border-t border-slate-100 dark:border-slate-700">

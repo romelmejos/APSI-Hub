@@ -651,13 +651,13 @@ export default function LearningPage({
                         style={{ width: "100%" }} 
                         scrolling="no" 
                         title="React JSX Demo" 
-                        src="https://codepen.io" 
+                        src="https://codepen.io/gaearon/embed/oWWQNa?default-tab=js,result&theme-id=dark" 
                         frameBorder="0" 
                         loading="lazy" 
                         allowTransparency={true} 
                         allowFullScreen={true}
                       >
-                        See the Pen <a href="https://codepen.io">React JSX Demo</a> on CodePen.
+                        See the Pen <a href="https://codepen.io/gaearon/pen/oWWQNa">React JSX Demo</a> on CodePen.
                       </iframe>
 
                 {/* Posts listing */}

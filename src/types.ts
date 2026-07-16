@@ -31,6 +31,7 @@ export interface Lesson {
   videoUrl: string; // Simulated placeholder video ID or state
   embedHtml?: string; // Embedded iframe or HTML
   description: string;
+  lessonMD: string;
   resources?: Array<{ name: string; type: string; size: string }>;
 }
 

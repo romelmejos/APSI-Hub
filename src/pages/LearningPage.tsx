@@ -561,7 +561,7 @@ export default function LearningPage({
                     : "border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 }`}
               >
-                My Lecture Notes
+                Lecture Notes
               </button>
               <button
                 onClick={() => setActiveTab("discussion")}
@@ -645,36 +645,20 @@ export default function LearningPage({
             {activeTab === "discussion" && (
               <div className="p-6 space-y-8" id="tab-window-discussion">
                 {/* Ask a new question form */}
-                <form onSubmit={handleCreatePost} className="space-y-3.5 p-4 rounded-xl border border-brand-maroon/20 dark:border-brand-gold/20 bg-brand-maroon/5 dark:bg-brand-maroon/10">
-                  <h4 className="text-xs font-bold text-brand-maroon dark:text-brand-gold uppercase tracking-widest">Ask the Classroom</h4>
-                  
-                  <div className="space-y-2">
-                    <input
-                      type="text"
-                      placeholder="Title: e.g. Understanding matrix sizes in backpropagation"
-                      value={newPostTitle}
-                      onChange={(e) => setNewPostTitle(e.target.value)}
-                      className="w-full text-xs p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-brand-maroon"
-                    />
-                    <textarea
-                      rows={2}
-                      placeholder="Provide full description of your query..."
-                      value={newPostContent}
-                      onChange={(e) => setNewPostContent(e.target.value)}
-                      className="w-full text-xs p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-brand-maroon"
-                    />
-                  </div>
-
-                  <div className="flex justify-end">
-                    <button
-                      type="submit"
-                      disabled={!newPostTitle.trim() || !newPostContent.trim()}
-                      className="px-5 h-9 bg-brand-maroon text-white rounded-lg text-xs font-bold hover:bg-brand-maroon-light disabled:opacity-40 disabled:hover:bg-brand-maroon shadow transition-colors border border-brand-gold/15"
-                    >
-                      Post Question
-                    </button>
-                  </div>
-                </form>
+                <h4 className="text-xs font-bold text-brand-maroon dark:text-brand-gold uppercase tracking-widest">SANDBOX</h4>
+                    <iframe 
+                        height="400" 
+                        style={{ width: "100%" }} 
+                        scrolling="no" 
+                        title="React JSX Demo" 
+                        src="https://codepen.io" 
+                        frameBorder="0" 
+                        loading="lazy" 
+                        allowTransparency={true} 
+                        allowFullScreen={true}
+                      >
+                        See the Pen <a href="https://codepen.io">React JSX Demo</a> on CodePen.
+                      </iframe>
 
                 {/* Posts listing */}
                 <div className="space-y-6 pt-4 border-t border-slate-100 dark:border-slate-700">

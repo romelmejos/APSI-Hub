@@ -48,7 +48,7 @@
       <h3 class="text-xl font-semibold text-gray-900 mb-4">Why React?</h3>
       <div class="space-y-6">
         <div>
-          <h4 class="font-bold text-maroon mb-2">Core Technical Advantages</h4>
+          <h4 class="font-bold text-gray-900 mb-2">Core Technical Advantages</h4>
           <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
             <li><strong>Component-Based Architecture:</strong> UI is broken down into small, isolated reusable pieces.</li>
             <li><strong>The Virtual DOM:</strong> React creates a lightweight copy of the page in its memory, isolates exactly what changed, and updates only that specific element, preventing lag.</li>
@@ -57,7 +57,7 @@
           </ul>
         </div>
         <div>
-          <h4 class="font-bold text-maroon mb-2">Business & Career Benefits</h4>
+          <h4 class="font-bold text-gray-900 mb-2">Business & Career Benefits</h4>
           <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
             <li><strong>Massive Job Market:</strong> Highly sought after globally, opening doors to high-paying roles.</li>
             <li><strong>Backed by Meta:</strong> Guarantees stability and continuous updates.</li>
@@ -72,19 +72,16 @@
   <section id="setup-react">
     <h2 class="text-2xl font-bold text-maroon mb-6 border-b-2 border-gray-200 pb-2">3. Initializing a React App</h2>
     <div class="bg-white rounded-xl p-8 shadow-sm space-y-6">
-      
       <div>
         <p class="text-gray-700 mb-2">First, make sure Node.js is installed. Check your terminal:</p>
         <pre class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm font-mono overflow-x-auto"><code>node -v
 <span class="text-gray-400"># Expected output: v22.15.0 or similar</span></code></pre>
       </div>
-
       <div>
         <h3 class="text-lg font-bold text-gray-900 mb-2">Install Vite & Create Application</h3>
         <p class="text-gray-700 mb-2">We will use the Vite build tool. Run this command to create a project named <code>my-react-app</code>:</p>
         <pre class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm font-mono overflow-x-auto"><code>npm create vite@latest my-react-app -- --template react</code></pre>
       </div>
-
       <div>
         <p class="text-gray-700 mb-2">Follow the terminal prompts (press <code>y</code> to proceed). If successful, you will see:</p>
         <pre class="bg-gray-900 text-gray-300 p-4 rounded-lg text-sm font-mono overflow-x-auto"><code>VITE v8.0.15 ready in 262 ms
@@ -99,7 +96,6 @@
     <h2 class="text-2xl font-bold text-maroon mb-6 border-b-2 border-gray-200 pb-2">4. Your First React App</h2>
     <div class="bg-white rounded-xl p-8 shadow-sm">
       <p class="text-gray-700 mb-4">Look in the <code>my-react-app/src</code> folder. Open <code>App.jsx</code>. Replace the default boilerplate with this simple code:</p>
-      
       <div class="bg-gray-800 rounded-t-lg px-4 py-2 flex items-center gap-2">
         <div class="w-3 h-3 rounded-full bg-red-500"></div>
         <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -122,12 +118,10 @@
   <section id="jsx-basics">
     <h2 class="text-2xl font-bold text-maroon mb-6 border-b-2 border-gray-200 pb-2">5. Understanding JSX</h2>
     <div class="bg-white rounded-xl p-8 shadow-sm space-y-8">
-      
       <div>
         <h3 class="text-xl font-semibold text-gray-900 mb-2">What is JSX?</h3>
         <p class="text-gray-700">JSX stands for JavaScript XML. It allows us to write HTML elements directly in JavaScript without needing <code>createElement()</code> methods. It is translated into regular JavaScript at runtime.</p>
       </div>
-
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h4 class="font-bold text-gray-900 mb-2">With JSX (Easy)</h4>
@@ -138,7 +132,6 @@
           <pre class="bg-gray-900 text-gray-300 p-4 rounded-lg text-sm font-mono overflow-x-auto"><code><span class="text-purple-400">const</span> myElement = React.<span class="text-blue-400">createElement</span>(<span class="text-green-300">'h1'</span>, {}, <span class="text-green-300">'I do not use JSX!'</span>);</code></pre>
         </div>
       </div>
-
       <div class="border-l-4 border-maroon pl-6 py-2 space-y-6 bg-gray-50 rounded-r-lg">
         <div>
           <h4 class="font-bold text-gray-900">1. One Top Level Element</h4>
@@ -150,13 +143,11 @@
   <span class="text-gray-300">&lt;/&gt;</span>
 );</code></pre>
         </div>
-
         <div>
           <h4 class="font-bold text-gray-900">2. Elements Must be Closed</h4>
           <p class="text-sm text-gray-700 mb-2">JSX follows strict XML rules. Empty elements must close with <code>/&gt;</code>.</p>
           <pre class="bg-gray-900 text-gray-300 p-3 rounded-lg text-sm font-mono overflow-x-auto"><code><span class="text-purple-400">const</span> myElement = <span class="text-gray-300">&lt;</span><span class="text-red-400">input</span> <span class="text-yellow-300">type</span><span class="text-gray-300">=</span><span class="text-green-300">"text"</span> <span class="text-gray-300">/&gt;</span>;</code></pre>
         </div>
-
         <div>
           <h4 class="font-bold text-gray-900">3. Attribute class = className</h4>
           <p class="text-sm text-gray-700 mb-2">Because <code>class</code> is a reserved word in JavaScript, JSX uses <code>className</code>.</p>
@@ -169,9 +160,7 @@
   <section id="jsx-expressions">
     <h2 class="text-2xl font-bold text-maroon mb-6 border-b-2 border-gray-200 pb-2">6. JSX Expressions & Logic</h2>
     <div class="bg-white rounded-xl p-8 shadow-sm space-y-6">
-      
       <p class="text-gray-700">You can embed any valid JavaScript expression (math, variables, function calls) inside JSX by wrapping it in curly braces <code>{ }</code>.</p>
-
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h4 class="font-bold text-gray-900 mb-2">Variables in JSX</h4>
@@ -188,10 +177,8 @@
 }</code></pre>
         </div>
       </div>
-
       <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-2">Conditional Rendering (If Statements)</h3>
       <p class="text-gray-700 mb-4">React supports <code>if</code> statements outside of the JSX block. Inside JSX, you must use a ternary operator.</p>
-
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h4 class="font-bold text-gray-900 mb-2">Option 1: Outside JSX</h4>
